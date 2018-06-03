@@ -9,12 +9,50 @@
 </head>
 
 <body>
-  
-
   <div id="app">
-    <input type="text" v-on:input="changeTitle">
-    <p>{{ title }}</p>
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ seyHello() }}
+      <a v-bind:href="link">google</a>
+    </p>
+    <p>{{ finishedLink }}</p>
+    <p v-html="finishedLink"></p>
   </div>
+
+  <hr>
+
+  <div id="app2">
+    <button v-on:click="increse(2, $event)">click me</button>
+    <button v-on:click="counter++">counter++</button>
+    <p>{{ counter }}</p>
+    <p>{{ counter * 2 }}</p>
+    <p v-on:mousemove="updateCoordinates">
+      Coordinates: {{ x }}/ {{y}} -
+      <span v-on:mousemove.stop="">DEAD SPOT</span>
+      -
+      <span v-on:mousemove.pervent="">DEAD SPOT</span>
+    </p>
+    <input type="text" v-on:keyup.enter="alertMe" />
+  </div>
+
+  <hr>
+
+  <div id="app3">
+    <input type="text" v-model="name"/>
+    <p>{{ name }}</p>
+  </div>
+
+  <hr>
+
+  <div id="app4">
+    <button v-on:click="counter++">counter++</button>
+    <button v-on:click="counter--">counter--</button>
+    <button v-on:click="secondCounter++">secondCounter++</button>
+    <p>counter {{ counter }} | {{ secondCounter }}</p>
+    <p>result {{ result() }} | {{  myOutput }}
+       
+    </p>
+  </div>
+
   <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
 </body>
 
