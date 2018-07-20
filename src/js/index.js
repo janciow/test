@@ -69,6 +69,9 @@ new Vue({
   }
 })
 
+Vue.component('hello', {
+  template: '<h1>Hello Componnet</h1>'
+})
 
 new Vue({
   el: '#app5',
@@ -105,7 +108,7 @@ var vm1 = new Vue({
   },
   watch: {
     title: function (value) {
-      alert('Title changed, new value ' + value)
+      // alert('Title changed, new value ' + value)
     }
   }
 })
@@ -132,9 +135,10 @@ var vm2 = new Vue({
 })
 
 var vm3 = new Vue({
+  el: '.hello',
   template: '<h1>Hello!</h1>'
 })
 
 vm3.$mount();
-
 document.getElementById('app8').appendChild(vm3.$el)
+
