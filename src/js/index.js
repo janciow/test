@@ -81,35 +81,40 @@ new Vue({
   }
 })
 
+var data = {
+  title: 'the VueJS Instance',
+  showParagrph: false
+}
 
 var vm1 = new Vue({
-  el: '#app6',
-  data: {
-    title: 'the VueJS Instance',
-    showParagrph: false
-  },
+  data: data,
   methods: {
     show: function () {
       this.showParagrph = true;
-      this.updateTitle('The VueJS Instace (updated)')
+      this.updateTitle('The VueJS Instace (updated)');
+      this.$refs.myButton.innerText = 'new name from show'
     },
     updateTitle: function (title) {
       this.title = title
     }
   },
   computed: {
-    lowercasleTitle: function() {
+    lowercasleTitle: function () {
       return this.title.toLowerCase();
     }
   },
   watch: {
-    title: function(value) {
+    title: function (value) {
       alert('Title changed, new value ' + value)
     }
   }
 })
 
-setTimeout(function() {
+vm1.$mount('#app6');
+
+console.log(vm1.$data === data)
+
+setTimeout(function () {
   vm1.title = 'changed by Timier!'
   vm1.show();
 }, 3000)
@@ -120,8 +125,16 @@ var vm2 = new Vue({
     title: 'The second Instuance'
   },
   methods: {
-    onChange: function() {
+    onChange: function () {
       vm1.title = 'changed!'
     }
   }
 })
+
+var vm3 = new Vue({
+  template: '<h1>Hello!</h1>'
+})
+
+vm3.$mount();
+
+document.getElementById('app8').appendChild(vm3.$el)

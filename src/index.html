@@ -75,7 +75,7 @@
   <hr>
   <div id="app6">
     <h1>{{ title }}</h1>
-    <button v-on:click="show">Show partghpt</button>
+    <button v-on:click="show" ref="myButton">Show partghpt</button>
     <p v-if="showParagrph">this paragrph is alweys visible</p>
     </p>
   </div>
@@ -84,6 +84,8 @@
     <h1>{{ title }}</h1>
     <button v-on:click="onChange">Show sominitng in Vue 1</button>
   </div>
+
+  <div id="app8"></div>
 
   <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
 </body>
