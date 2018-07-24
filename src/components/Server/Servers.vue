@@ -3,17 +3,35 @@
         <ul class="list-group">
             <li
                     class="list-group-item"
-                    :key="index"
-                    v-for="index in 5">
-                Server #{{ index }}
+                    :key="server.id"
+                    @click="selectServer(server)"
+                    v-for="server in servers">
+                Server #{{ server.id }}
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+export default {
+  data: function() {
+    return {
+      servers: [
+        { id: 1, status: "Normal" },
+        { id: 2, status: "Normal" },
+        { id: 3, status: "Normal" },
+        { id: 4, status: "Normal" },
+        { id: 5, status: "Normal" }
+      ]
+    };
+  },
+  methods: {
+    selectServer(server) {
+      this.$emit('selectedServer', server )
+    }
+  }
+};
 </script>
 
 <style>
-
 </style>
