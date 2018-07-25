@@ -1,29 +1,29 @@
 <template>
     <div class="col-xs-12 col-sm-6">
         <ul class="list-group">
-            <li
-                    class="list-group-item"
-                    :key="server.id"
-                    @click="selectServer(server)"
-                    v-for="server in servers">
-                Server #{{ server.id }}
-            </li>
+        <appServer v-for="server in servers" :server="server" :key="server.id"></appServer>     
         </ul>
     </div>
 </template>
 
 <script>
+import Server from './Server.vue';
+
+
 export default {
   data: function() {
     return {
       servers: [
         { id: 1, status: "Normal" },
-        { id: 2, status: "Normal" },
+        { id: 2, status: "Normal 1" },
         { id: 3, status: "Normal" },
-        { id: 4, status: "Normal" },
+        { id: 4, status: "Normal 2" },
         { id: 5, status: "Normal" }
       ]
     };
+  },
+  components: {
+      appServer: Server
   },
   methods: {
     selectServer(server) {

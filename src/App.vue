@@ -3,7 +3,7 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <servers></servers>
+            <servers @selectedServer=""></servers>
             <app-server-details></app-server-details>
         </div>
         <hr>
@@ -18,6 +18,11 @@
     import ServerDetails from './components/Server/ServerDetails.vue';
 
     export default {
+        data: function() {
+            return {
+                
+            }
+        },
         components: {
             appHeader: Header,
             Servers,
