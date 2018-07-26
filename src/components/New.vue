@@ -17,8 +17,17 @@ export default {
   },
   methods: {
     incrementCounter() {
-        this.counter++;
+      this.counter++;
     }
+  },
+  destroyed() {
+    console.log("Destroyed!");
+  },
+  deactivated() {
+    console.log("deactivated");
+  },
+  activated() {
+    console.log("activated");
   }
 };
 </script>
