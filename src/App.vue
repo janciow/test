@@ -2,43 +2,41 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <button @click="selectedComponent = 'appQuote'">Quote</button>
-                <button @click="selectedComponent = 'appAuthor'">Author</button>
-                <button @click="selectedComponent = 'appNew'">New</button>
+                <br>
+                <button class="btn btn-primary" @click="selectedCompnent = 'appBlue'">Load Blue Template</button>
+                <button class="btn btn-success" @click="selectedCompnent = 'appGreen'">Load Green Template</button>
+                <button class="btn btn-danger" @click="selectedCompnent = 'appRed'">Load Red Template</button>
                 <hr>
-                    selected component: {{ selectedComponent }}
-                    <keep-alive>
-                        <component :is="selectedComponent">
-                            <p>Default Content</p>
-                        </component>
-                    </keep-alive>
-               <!-- <app-quote quote="a wonderfull quote">
-                   <h2 slot="title">{{ quoteTitle }}</h2>
-                   <p>A wonderfull qoute</p>
-               </app-quote> -->
+
+                <p>Selected komponent: {{ selectedCompnent }}</p>
+                <component :is="selectedCompnent">
+                    <p>this is a conntent</p>
+                </component>
+                <!-- <app-blue>Blue Template</app-blue>
+                <app-green>Green Template</app-green>
+                <app-red>Red Template</app-red> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Quote from "./components/Quote.vue";
-import Author from "./components/Author.vue";
-import New from "./components/New.vue";
+    import Blue from './components/Blue.vue';
+    import Green from './components/Green.vue';
+    import Red from './components/Red.vue';
 
-export default {
-  data: function() {
-    return {
-      quoteTitle: "The Quote",
-      selectedComponent: "appQuote"
-    };
-  },
-  components: {
-    appQuote: Quote,
-    appAuthor: Author,
-    appNew: New
-  }
-};
+    export default {
+        data: function() {
+            return {
+                selectedCompnent: "appBlue"
+            }
+        },
+        components: {
+            appBlue: Blue,
+            appGreen: Green,
+            appRed: Red
+        }
+    }
 </script>
 
 <style>
